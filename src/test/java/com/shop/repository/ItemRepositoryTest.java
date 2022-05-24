@@ -93,4 +93,22 @@ class ItemRepositoryTest {
     List<Item> itemList = itemRepository.findByPriceLessThanOrderByPriceDesc(10005);
     assertEquals(10004, itemList.get(0).getPrice());
   }
+
+  @Test
+  @DisplayName("@Query를 사용한 상품 조회 테스트")
+  void findByItemDetail() {
+    this.createItemList();
+    List<Item> itemList = itemRepository.findByItemDetail("테스트 상품 상세 설명");
+    assertEquals(10, itemList.size());
+    assertEquals(10009, itemList.get(0).getPrice());
+  }
+
+  @Test
+  @DisplayName("nativeQuery 속성을 이용한 상품 조회 테스트")
+  void findByItemDetailByNative() {
+    this.createItemList();
+    List<Item> itemList = itemRepository.findByItemDetailByNative("테스트 상품 상세 설명");
+    assertEquals(10, itemList.size());
+    assertEquals(10009, itemList.get(0).getPrice());
+  }
 }
