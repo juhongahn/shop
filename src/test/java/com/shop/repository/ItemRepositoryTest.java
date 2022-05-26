@@ -112,8 +112,6 @@ class ItemRepositoryTest {
 
   }
 
-
-
   @Test
   @DisplayName("Querydsl 조회 테스트1")
   public void queryDslTest() {
@@ -208,6 +206,4 @@ class ItemRepositoryTest {
     assertEquals(10, itemList.size());
     assertEquals(10009, itemList.get(0).getPrice());
   }
-
-
 }
