@@ -10,6 +10,9 @@ spring:
     url: jdbc:mysql://localhost:3306/shop?serverTimezone=UTC
     username: juhong
     password: wnghd001!
+  devtools:
+    livereload:
+      enabled: true
   #실행되는 쿼리 콘솔에 출력
   jpa:
     properties:
@@ -19,6 +22,8 @@ spring:
     hibernate:
       ddl-auto: create
     database-platform: org.hibernate.dialect.MySQL8Dialect
+  thymeleaf:
+    cache: false
 
 #쿼리에 물음표로 출력되는 바인드 파라미터 출력
 logging:
@@ -28,6 +33,5 @@ logging:
         type:
           descriptor:
             sql: trace
-
 
 
