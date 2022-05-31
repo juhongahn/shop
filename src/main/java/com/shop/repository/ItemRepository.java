@@ -10,14 +10,17 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ItemRepository extends JpaRepository<Item, Long>, QuerydslPredicateExecutor<Item> {
-  Optional<List<Item>> findByItemNm(String itemNm);
-  List<Item> findByItemNmOrItemDetail(String itemNm, String itemDetail);
-  List<Item> findByPriceLessThan(Integer price);
-  List<Item> findByPriceLessThanOrderByPriceDesc(Integer price);
+    Optional<List<Item>> findByItemNm(String itemNm);
 
-  @Query("SELECT i FROM Item i WHERE i.itemDetail LIKE %:itemDetail% ORDER BY i.price DESC")
-  List<Item> findByItemDetail(@Param("itemDetail") String itemDetail);
+    List<Item> findByItemNmOrItemDetail(String itemNm, String itemDetail);
 
-  @Query(value = "SELECT * FROM Item i WHERE i.item_detail LIKE %:itemDetail% ORDER BY i.price DESC", nativeQuery = true)
-  List<Item> findByItemDetailByNative(@Param("itemDetail") String itemDetail);
+    List<Item> findByPriceLessThan(Integer price);
+
+    List<Item> findByPriceLessThanOrderByPriceDesc(Integer price);
+
+    @Query("SELECT i FROM Item i WHERE i.itemDetail LIKE %:itemDetail% ORDER BY i.price DESC")
+    List<Item> findByItemDetail(@Param("itemDetail") String itemDetail);
+
+    @Query(value = "SELECT * FROM Item i WHERE i.item_detail LIKE %:itemDetail% ORDER BY i.price DESC", nativeQuery = true)
+    List<Item> findByItemDetailByNative(@Param("itemDetail") String itemDetail);
 }
