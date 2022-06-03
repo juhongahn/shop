@@ -19,10 +19,14 @@ spring:
         show_sql: true
         format_sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     database-platform: org.hibernate.dialect.MySQL8Dialect
   thymeleaf:
     cache: false
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
 
 #쿼리에 물음표로 출력되는 바인드 파라미터 출력
 logging:
@@ -34,3 +38,6 @@ logging:
             sql: trace
 
 
+
+itemImgLocation: C:/my-workspace/shop/item
+uploadPath: file:///C:/my-workspace/shop/

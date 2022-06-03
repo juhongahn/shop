@@ -2,7 +2,10 @@ package com.shop.dto;
 
 import com.shop.constant.ItemSellStatus;
 import com.shop.entity.Item;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
@@ -11,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ItemFormDto {
 
     private Long id;
