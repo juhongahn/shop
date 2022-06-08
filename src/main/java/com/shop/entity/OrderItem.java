@@ -49,4 +49,10 @@ public class OrderItem extends BaseEntity{
         return orderPrice * count;
     }
 
+    /*
+    * 주문 취소했을 때 해당 orderItem의 count만큼 재고수를 올려줘야한다.
+    * */
+    public void cancel() {
+        this.getItem().addStock(count);
+    }
 }

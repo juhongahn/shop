@@ -68,4 +68,16 @@ public class Order extends BaseEntity{
 
         return totalPrice;
     }
+
+    /*
+    *   주문 상태를 취소로 돌리고 주문 아이템 리스트에 있는 주문 아이템들을 취소시킨다.
+    *   OrderItem은 또 cancel메서드로 Item의 재고를 증가시킴.
+    * */
+    public void cancelOrder() {
+        this.orderStatus = OrderStatus.CANCEL;
+
+        for (OrderItem orderItem : orderItemList){
+            orderItem.cancel();
+        }
+    }
 }
